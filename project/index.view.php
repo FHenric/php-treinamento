@@ -17,6 +17,11 @@
     </style>
 </head>
 <body>
+
+        <nav>
+            <li><a href="http://localhost/Estudos/PHP/project/controllers/about.php">about</a></li>
+            <li><a href="http://localhost/Estudos/PHP/project/controllers/contact-us.php">contact us</a></li>
+        </nav>
     
     <ul>
         
