@@ -4,13 +4,15 @@ class QueryBuilder{
 
     protected $pdo;
 
-    public function __construct(PDO $pdo){
+    public function __construct(PDO $pdo)
+    {
 
         $this->pdo = $pdo;
 
     }
 
-    public function selectAll($table) {
+    public function selectAll($table) 
+    {
         
         //prepare serve para pegar ou preparar os dados para dentro de uma variavel
     $statement = $this->pdo->prepare("select * from {$table}");
