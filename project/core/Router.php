@@ -33,11 +33,24 @@ class Router {
         
         if (array_key_exists($uri, $this->routes[$requestType])){
 
-            return $this->routes[$requestType][$uri];
+            //explode(caracter ou parte da string, string por si só) ele vai pegar um caracter no parametro e formar uma string contendo nos seus elementos o que vier antes e o que vier depois desse caracter passado por parametro
+
+            return $this->callAction(
+                ...explode('@', $this->routes[$requestType][$uri])
+            );
 
         }
         throw new Exception('Rota não encontrada!');
 
+    }
+
+    protected function callAction($controller, $action)
+    {   //esse action é o que tá depois do @ no nosso routes.php
+        if(! method_exists($controller, $action)){
+            throw new Exception("{$controller} does not respond to de {$action}");
+            
+        }
+        return (new $controller)->$action();
     }
 
 }

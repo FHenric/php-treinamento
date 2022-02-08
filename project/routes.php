@@ -1,8 +1,8 @@
 <?php 
 
-$router -> get('Estudos/PHP/project','controllers/index.php');
-$router -> get('Estudos/PHP/project/index.php/about','controllers/about.php');
-$router -> get('Estudos/PHP/project/index.php/about/culture','controllers/about-culture.php');
+$router -> get('Estudos/PHP/project','PagesController@home');
+$router -> get('Estudos/PHP/project/index.php/about','PagesController@about');
+$router -> get('Estudos/PHP/project/index.php/about/culture','PagesController@contact');
 
 $router -> post('Estudos/PHP/project/index.php/names', 'controllers/add-name.php');
 
