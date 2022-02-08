@@ -1,26 +1,23 @@
-<!-- UTILIZAÇÃO DE FUNÇÃO E MANIPULAÇÃO DE ARRAY -->
-
 <?php require('partials/head.php');?>
 
-        <?php require('partials/nav.php'); ?>
+<?php require('partials/nav.php');?>
 
-    <ul>
-        
-        <?php foreach($tasks as $task) : ?>
+<h1>Submit Your Name</h1>
 
-            <li>
-                <?php if($task->completed) :?>
-                    <strike> <?= $task->description; ?> </strike>
-                <?php else : ?>
+<form action="index.php/names" method="POST">
 
-                    <?= $task->description; ?>
-                
-                <?php endif; ?>
+<input name='name'> </input>
 
-            </li>
+<button type="submit">Submit!</button>
 
-        <?php endforeach; ?>
+</form>
 
-    </ul>
-    
+<h3>Your list:</h3>
+
+<?php foreach($users as $user) :?>
+
+    <li><?= $user->name;?> </li>
+
+<?php endforeach; ?>
+
 <?php require('partials/footer.php') ?>
