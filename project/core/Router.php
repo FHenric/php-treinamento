@@ -1,5 +1,6 @@
 <?php 
 
+namespace App\Core;
 class Router {
 
     public $routes = [
@@ -40,19 +41,21 @@ class Router {
             );
 
         }
-        throw new Exception('Rota não encontrada!');
+        // throw new Exception('Rota não encontrada!');
 
     }
 
     protected function callAction($controller, $action)
     {   
+        $controller = "App\\Controllers\\{$controller}";
+
         $controller = new $controller;
         
         //esse action é o que tá depois do @ no nosso routes.php
-        if(! method_exists($controller, $action)){
-            throw new Exception("{$controller} does not respond to de {$action}");
+        // if(! method_exists($controller, $action)){
+        //     throw new Exception("{$controller} does not respond to de {$action}");
             
-        }
+        // }
 
         return $controller->$action();
     }
