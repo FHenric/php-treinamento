@@ -45,12 +45,16 @@ class Router {
     }
 
     protected function callAction($controller, $action)
-    {   //esse action é o que tá depois do @ no nosso routes.php
+    {   
+        $controller = new $controller;
+        
+        //esse action é o que tá depois do @ no nosso routes.php
         if(! method_exists($controller, $action)){
             throw new Exception("{$controller} does not respond to de {$action}");
             
         }
-        return (new $controller)->$action();
+
+        return $controller->$action();
     }
 
 }
